@@ -1,5 +1,5 @@
 <?php
 
-echo "hello world";
+echo "hello world, i'm using basic php in blade lmao :)";
 
 ?>
