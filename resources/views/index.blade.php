@@ -1,5 +1,8 @@
-<?php
+@extends('layouts.app')
+@include('includes.header')
 
-echo "hello world, i'm using basic php in blade lmao :)";
 
-?>
+@section('content')
+
+
+@include('includes.footer')
