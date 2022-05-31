@@ -28,6 +28,11 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    /**
+     * Where to redirect users after logout.
+     *
+     * @return part of the url where you are send after logout
+     */
     protected function loggedOut($request) {
 
         return redirect('/index');
