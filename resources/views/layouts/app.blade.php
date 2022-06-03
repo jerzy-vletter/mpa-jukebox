@@ -37,7 +37,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <!--<a id="genre" class="nav-link" href="{{ route('genre') }}">genre</a>-->
+                        <li class="nav-item">
+                            <a id="genre" class="nav-link" href="{{ route('genre') }}">{{ __('Genre') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

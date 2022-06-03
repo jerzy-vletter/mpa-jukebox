@@ -21,12 +21,10 @@ Route::get('/index', function (){
     return view('index');
 });
 
-/**Route::get('/genre',function (){
-    return view('genre');
-});**/
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/genre', [\App\Http\Controllers\GenreController::class, 'index'])->name('genre');
+
 
