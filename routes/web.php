@@ -21,9 +21,9 @@ Route::get('/index', function (){
     return view('index');
 });
 
-Route::get('/genre',function (){
+/**Route::get('/genre',function (){
     return view('genre');
-});
+});**/
 
 
 Auth::routes();
