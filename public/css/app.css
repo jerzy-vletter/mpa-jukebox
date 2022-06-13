@@ -3,3 +3,8 @@
     right: 5rem;
 }
 
+#genreTitle{
+    color: blue;
+    text-decoration: underline;
+    font-size: 25px;
+}

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
+    public function pageSelection($page){
+        return view('genres/' .$page);
+    }
+
     /**
      * Display a listing of the resource.
      *

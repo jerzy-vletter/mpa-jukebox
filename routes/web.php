@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
 Route::get('/index', function (){
@@ -25,6 +26,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/genre', [\App\Http\Controllers\GenreController::class, 'index'])->name('genre');
+Route::get('/genre',[App\Http\Controllers\GenreController::class, 'index'])->name('genre');
+Route::get('/genres/{page}', [App\Http\Controllers\GenreController::class, 'pageSelection'])->name('genreSelect');
 
 
