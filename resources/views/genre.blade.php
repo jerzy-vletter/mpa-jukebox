@@ -1,5 +1,5 @@
 @include('includes.header')
 
-@section('content')
+<!-- this is the start of the genre page, here all the genre pages are changed based on the url -->
 
 @include('includes.footer')
