@@ -5,6 +5,11 @@
 
 #genreTitle{
     color: blue;
-    text-decoration: underline;
     font-size: 25px;
+}
+
+#genreTitle:hover{
+    color: darkblue;
+    font-size: 25px;
+    text-decoration: underline;
 }
