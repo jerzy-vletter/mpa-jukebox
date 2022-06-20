@@ -5,17 +5,19 @@
 <div class="card-body">
     <h1 href="">{{ __('songs') }}</h1>
 </div>
-<table>
+<table border="2">
 
 <tr>
-    <td>name</td>
-    <td>duration</td>
-    <td>artist</td>
+    <th>name</th>
+    <th>duration</th>
+    <th>artist</th>
 </tr>
 @foreach($songs as $songs)
 
 <tr>
     <td>{{$songs->name}}</td>
+    <td>{{$songs->song_duration}}</td>
+    <td>{{$songs->artist}}</td>
 </tr>
 
 @endforeach

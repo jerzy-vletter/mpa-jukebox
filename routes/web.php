@@ -31,5 +31,6 @@ Route::get('/genre',[App\Http\Controllers\GenreController::class, 'index'])->nam
 Route::get('/genres/{page}', [App\Http\Controllers\GenreController::class, 'pageSelection'])->name('genreSelect');
 
 // get the songs from the database
-Route::get('/genres/{page}', [App\Http\Controllers\SongController::class, 'getLofiSongs'])->name('genreSelect');
+Route::get('/genres/{page}', [App\Http\Controllers\SongController::class, 'getSongs'])->name('genreSelect');
+
 
