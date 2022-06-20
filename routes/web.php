@@ -25,8 +25,11 @@ Route::get('/index', function (){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/genre',[App\Http\Controllers\GenreController::class, 'index'])->name('genre');
+
+// get the destination base on the data given on the genre page
 Route::get('/genres/{page}', [App\Http\Controllers\GenreController::class, 'pageSelection'])->name('genreSelect');
 
+// get the songs from the database
+Route::get('/genres/{page}', [App\Http\Controllers\SongController::class, 'getLofiSongs'])->name('genreSelect');
 
