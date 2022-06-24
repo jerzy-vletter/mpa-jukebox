@@ -19,11 +19,5 @@
 @endguest
 
 
-<div class="card-body">
-    <!-- if there is a user logged in they see what they have liked, if there is no user logged in it shows the liked songs in the active session -->
-    <h1 href="" id="liked">{{ __('liked') }}</h1>
-
-</div>
-
 @include('includes.footer')
 

@@ -27,10 +27,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/genre',[App\Http\Controllers\GenreController::class, 'index'])->name('genre');
 
-// get the destination base on the data given on the genre page
-Route::get('/genres/{page}', [App\Http\Controllers\GenreController::class, 'pageSelection'])->name('genreSelect');
 
 // get the songs from the database
-Route::get('/genres/{page}', [App\Http\Controllers\SongController::class, 'getSongs'])->name('genreSelect');
+Route::get('/songs/{page}', [App\Http\Controllers\SongController::class, 'getSongs'])->name('genreSelect');
+
+// get the destination page based on the song id of the song gotten out of the db.
+
+Route::get('/songDetails/{page}', [\App\Http\Controllers\SongController::class, 'displaySongDetails'])->name('songSelect');
 
 

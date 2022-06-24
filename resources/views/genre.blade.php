@@ -7,11 +7,10 @@
 
 <div class="card-body">
     <h1 href="">{{ __('genres') }}</h1>
-    <li><a id="genreTitle" href="{{ route('genreSelect', 'lofi') }}">lofi</a></li>
-    <li><a id="genreTitle" href="{{ route('genreSelect', 'metal') }}">metal</a></li>
-    <li><a id="genreTitle" href="{{ route('genreSelect', 'pop') }}">pop</a></li>
-    <li><a id="genreTitle" href="{{ route('genreSelect', 'edm') }}">edm</a></li>
-    <li><a id="genreTitle" href="{{ route('genreSelect', 'rap') }}">rap</a></li>
-</div>
 
+    @foreach($genre as $genre)
+        <li><a id="genreTitle" href="{{ route('genreSelect', [$genre->name]) }}">{{$genre->name}}</a></li>
+
+    @endforeach
+</div>
 @include('includes.footer')
