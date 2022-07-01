@@ -35,7 +35,7 @@ class LoginController extends Controller
      */
     protected function loggedOut($request) {
 
-        return redirect('/index');
+        return redirect('/');
 
     }
 

@@ -12,8 +12,15 @@
 @else
     <div class="card-body">
         @if (Route::has('logout'))
-            <h1 href="" id="playlistDisplay">{{ __('playlist') }}</h1>
-
+            <h1 href="" id="playlistDisplay"> playlist <a href="{{ route('PlaylistForm') }}">{{ __('create a new one') }}</a></h1><br>
+            @if(isset($playlists))
+                @foreach($playlists as $playlist)
+                    <td>{{$playlist->name}}<a href=""></a></td>
+                @endforeach
+            @endif
+            @else
+                <a href="">something went wrong</a>
+            @endelse
         @endif
     </div>
 @endguest

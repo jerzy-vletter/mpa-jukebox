@@ -13,7 +13,7 @@
 @foreach($songs as $songs)
 
 <tr>
-    <td><a href="{{ route('songSelect', [$songs->id]) }}">{{$songs->name}}</a></td>
+    <td><a href="{{ route('songSelect', [$songs->id]) }}">{{$songs->name}}</a><a href="">add to playlist</a></td>
 </tr>
 
 @endforeach

@@ -7,7 +7,7 @@
 
 
         <h1>TITLE: {{$songDetail->name}}</h1>
-        <td>SONG DURATION: {{$songDetail->song_duration}}</td><br>
+        <td>SONG DURATION: {{$songDetail->song_duration}} seconds</td><br>
         <td>ARTIST: {{$songDetail->artist}}</td><br>
 
     @endforeach

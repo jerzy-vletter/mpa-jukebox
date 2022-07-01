@@ -14,13 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/index', function (){
-    return view('index');
-});
+Route::get('/', [App\Http\Controllers\PlaylistController::class, 'display']);
 
 Auth::routes();
 
@@ -33,6 +27,11 @@ Route::get('/songs/{page}', [App\Http\Controllers\SongController::class, 'getSon
 
 // get the destination page based on the song id of the song gotten out of the db.
 
-Route::get('/songDetails/{page}', [\App\Http\Controllers\SongController::class, 'displaySongDetails'])->name('songSelect');
+Route::get('/songDetails/{page}', [App\Http\Controllers\SongController::class, 'displaySongDetails'])->name('songSelect');
 
+// routes to the crud portions of the playlist.
+
+Route::get('/PlayListform', [App\Http\Controllers\PlaylistController::class, 'index'])->name('PlaylistForm');
+Route::get('/createPlaylist', [App\Http\Controllers\PlaylistController::class, 'create'])->name('createPlaylist');
+Route::get('/showPlaylist', [App\Http\Controllers\PlaylistController::class, 'display'])->name('showPlaylist');
 
