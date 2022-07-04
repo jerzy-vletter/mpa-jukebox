@@ -15,12 +15,9 @@
             <h1 href="" id="playlistDisplay"> playlist <a href="{{ route('PlaylistForm') }}">{{ __('create a new one') }}</a></h1><br>
             @if(isset($playlists))
                 @foreach($playlists as $playlist)
-                    <td>{{$playlist->name}}<a href=""></a></td>
+                    <a href="{{ route('PlaylistDetails', [$playlist->id]) }}">{{$playlist->name}}</a> <a href="{{ route('deletePlaylist', [$playlist->id]) }}">delete this playlist</a>
                 @endforeach
             @endif
-            @else
-                <a href="">something went wrong</a>
-            @endelse
         @endif
     </div>
 @endguest

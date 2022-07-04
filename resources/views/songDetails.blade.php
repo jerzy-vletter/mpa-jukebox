@@ -3,15 +3,10 @@
 <!-- this is the display page for the all details of every song, the item displayed is determined dynamicly via item id -->
 
 <div class="card-body">
-    @foreach($songData as $songDetail)
 
-
-        <h1>TITLE: {{$songDetail->name}}</h1>
-        <td>SONG DURATION: {{$songDetail->song_duration}} seconds</td><br>
-        <td>ARTIST: {{$songDetail->artist}}</td><br>
-
-    @endforeach
-
+        <h1>TITLE: {{$songData->name}}</h1>
+        <td>SONG DURATION: {{$songData->song_duration}} seconds</td><br>
+        <td>ARTIST: {{$songData->artist}}</td><br>
 </div>
 
 @include('includes.footer')

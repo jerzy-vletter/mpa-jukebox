@@ -44,6 +44,9 @@
                         <li class="nav-item">
                             <a id="genre" class="nav-link" href="{{ route('genre') }}">{{ __('Genre') }}</a>
                         </li>
+                        <li>
+                            <a id="recent" class="nav-link" href="{{ route('recent') }}">recent</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

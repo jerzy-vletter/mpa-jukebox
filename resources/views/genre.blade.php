@@ -9,7 +9,7 @@
     <h1 href="">{{ __('genres') }}</h1>
 
     @foreach($genre as $genre)
-        <li><a id="genreTitle" href="{{ route('genreSelect', [$genre->name]) }}">{{$genre->name}}</a></li>
+        <li><a id="genreTitle" href="{{ route('genreSelect', [$genre->id]) }}">{{$genre->name}}</a></li>
 
     @endforeach
 </div>
