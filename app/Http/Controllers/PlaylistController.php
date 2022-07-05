@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Playlist;
+use App\Models\PlaylistSong;
 use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -42,7 +43,6 @@ class PlaylistController extends Controller
         DB::table('playlists')->insert([
             'name'=> $plName,
             'user_id'=> auth()->user()->id,
-            'song_id'=> ''
         ]);
         return redirect('');
     }
@@ -54,7 +54,14 @@ class PlaylistController extends Controller
      */
     public function details($page)
     {
-        $details = Playlist::where('id', $page)->get();
+        $details = [];
+        $pldata = playlistsong::where('playlist_id', $page)->get();
+
+        foreach($pldata as $index){
+            array_push($details, song::where('id', $index->song_id)->get());
+        }
+
+        dd($details);
         return view('playlistDetails', ['details'=>$details]);
     }
 

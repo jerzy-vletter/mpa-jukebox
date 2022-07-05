@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use GuzzleHttp\Psr7\AppendStream;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Song extends Model
+class PlaylistSong extends Model
 {
-    protected $table = 'Songs';
+    protected $table = 'playlist_song';
 
     public function playlist(){
-        return $this->belongsToMany(playlist::class);
+        return $this->belongsToMany(playlist::class, song::class);
     }
 }
 
+?>

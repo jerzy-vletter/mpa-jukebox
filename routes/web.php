@@ -34,7 +34,7 @@ Route::get('/songs/{page}', [App\Http\Controllers\SongController::class, 'getSon
 
 Route::get('/songDetails/{page}', [App\Http\Controllers\SongController::class, 'displaySongDetails'])->name('songSelect');
 
-// routes to the crud portions of the playlist.
+// routes containing functionality that are used by / for the crud of / used to access the playlists.
 
 Route::get('/PlayListform', [App\Http\Controllers\PlaylistController::class, 'index'])->name('PlaylistForm');
 Route::get('/createPlaylist', [App\Http\Controllers\PlaylistController::class, 'create'])->name('createPlaylist');
@@ -43,4 +43,5 @@ Route::get('/deletePlaylist/{page}', [App\Http\Controllers\PlaylistController::c
 Route::get('/PlaylistDetails/{page}', [App\Http\Controllers\PlaylistController::class, 'details'])->name('PlaylistDetails');
 Route::get('/PlaylistSelect/{page}', [App\Http\Controllers\PlaylistController::class, 'playlists'])->name('PlaylistSelect');
 Route::get('/storeSong/{song}', [App\Http\Controllers\PlaylistController::class, 'store'])->name('storeSong');
+Route::get('/createRecentPlaylist',[App\SessionController::class, 'createPlaylist'])->name('createRecentPlaylist');
 

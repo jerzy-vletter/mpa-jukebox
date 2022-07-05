@@ -4,7 +4,7 @@
     <h1>songs</h1>
 
     @foreach($details as $details)
-        <a>{{$details->song_id}}</a>
+        <a>{{$details->name}}</a><br>
     @endforeach
 
 </div>
