@@ -57,7 +57,7 @@ class PlaylistController extends Controller
             foreach($index->songs as $song){
                 $time = $time + $song->song_duration;
             }
-        }
+        };
         return $time;
     }
 
@@ -149,6 +149,13 @@ class PlaylistController extends Controller
      */
     public function destroy($page)
     {
+        $var = DB::table('playlist_song')->where('playlist_id', $page)->get();
+        if($var != []){
+            foreach($var as $index){
+                $song = $index->song_id;
+                $this->deleteFromPlaylist($song);
+            }
+        }
         Playlist::find($page)->delete();
         return redirect('');
     }

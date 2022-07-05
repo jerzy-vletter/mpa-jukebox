@@ -42,6 +42,7 @@ class SessionController
                     'playlist_id'=>$newPl->id
                 ]);
             }
+            $this->deleteObjectFromSession($request);
             return redirect('');
         }
         return back();
@@ -52,8 +53,9 @@ class SessionController
         session()->push('playlist', $data);
     }
 
-    public function deleteObjectFromSession($data){
-        session()->forget($data);
+    public function deleteObjectFromSession(Request $request){
+        $request->session()->forget('playlist');
+
     }
 
     public function deleteAllFromSession(){
