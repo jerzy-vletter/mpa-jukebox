@@ -10,11 +10,11 @@
     <th>add</th>
 </tr>
 
-@foreach($playlists as $playlists)
+@foreach($playlists as $playlist)
 
     <tr>
-        <td>{{$playlists->name}}</td>
-        <td><a href="{{ route('storeSong', [$playlists->id] ) }}">add to playlist</a></td>
+        <td>{{$playlist->name}}</td>
+        <td><a href="{{ route('storeSong', [$song_id, $playlist->id] ) }}">add to playlist</a></td>
     </tr>
 
 @endforeach

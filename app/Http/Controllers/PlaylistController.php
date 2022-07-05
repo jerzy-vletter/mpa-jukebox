@@ -46,6 +46,20 @@ class PlaylistController extends Controller
         ]);
         return redirect('');
     }
+    /**
+     * time calculation for the total time of a playlist
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function timecalculation($details){
+        $time = 0;
+        foreach($details as $index){
+            foreach($index->songs as $song){
+                $time = $time + $song->song_duration;
+            }
+        }
+        return $time;
+    }
 
     /**
      * shows the contents of the selected playlist
@@ -54,15 +68,17 @@ class PlaylistController extends Controller
      */
     public function details($page)
     {
-        $details = [];
+        /*$details = [];
         $pldata = playlistsong::where('playlist_id', $page)->get();
 
         foreach($pldata as $index){
             array_push($details, song::where('id', $index->song_id)->get());
-        }
+        }*/
 
-        dd($details);
-        return view('playlistDetails', ['details'=>$details]);
+        $details = Playlist::where('id', $page)->get();
+
+        $time = $this->timecalculation($details);
+        return view('playlistDetails', ['details'=>$details, 'time'=>$time]);
     }
 
     /**
@@ -73,8 +89,10 @@ class PlaylistController extends Controller
      */
     public function playlists($page)
     {
-        $playlists = Playlist::get();
-        return view('PlaylistSelect', ['playlists'=>$playlists]);
+        if(isset(auth()->user()->id)){
+            $playlists = Playlist::where('user_id', auth()->user()->id)->get();
+        }
+        return view('PlaylistSelect', ['playlists'=>$playlists, 'song_id' => $page]);
     }
     /**
      * Store a newly created resource in storage.
@@ -82,9 +100,10 @@ class PlaylistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($song)
+    public function store($song, $playlist)
     {
-        DB::table('playlists')->update(['song_id'=>$song]);
+
+        DB::table('playlist_song')->insert(['song_id'=>$song, 'playlist_id' =>$playlist]);
         return redirect('');
     }
 
@@ -99,18 +118,29 @@ class PlaylistController extends Controller
         //
     }
 
+    public function updateForm($page)
+    {
+        $plname = Playlist::where('id', $page)->get();
+        return view('updateForm', ['plname'=>$plname]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Playlist $playlist)
+    public function update($page)
     {
-        //
+        $plName = $_GET['plName'];
+        DB::table('playlists')->where('id', $page)->update(['name'=>$plName]);
+        return redirect('/');
     }
 
+    public function deleteFromPlaylist($song)
+    {
+        DB::table('playlist_song')->where('song_id', $song)->take(1)->delete();
+        return redirect('/');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -122,4 +152,6 @@ class PlaylistController extends Controller
         Playlist::find($page)->delete();
         return redirect('');
     }
+
+
 }

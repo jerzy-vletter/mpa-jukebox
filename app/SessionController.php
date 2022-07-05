@@ -42,7 +42,6 @@ class SessionController
                     'playlist_id'=>$newPl->id
                 ]);
             }
-
             return redirect('');
         }
         return back();

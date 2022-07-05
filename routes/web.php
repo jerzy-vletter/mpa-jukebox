@@ -39,9 +39,12 @@ Route::get('/songDetails/{page}', [App\Http\Controllers\SongController::class, '
 Route::get('/PlayListform', [App\Http\Controllers\PlaylistController::class, 'index'])->name('PlaylistForm');
 Route::get('/createPlaylist', [App\Http\Controllers\PlaylistController::class, 'create'])->name('createPlaylist');
 Route::get('/showPlaylist', [App\Http\Controllers\PlaylistController::class, 'display'])->name('showPlaylist');
+Route::get('/updateForm/{page}', [App\Http\Controllers\PlaylistController::class, 'updateForm'])->name('updateform');
+Route::get('/updatePlaylist/{page}', [App\Http\Controllers\PlaylistController::class, 'update'])->name('updatePlaylist');
 Route::get('/deletePlaylist/{page}', [App\Http\Controllers\PlaylistController::class, 'destroy'])->name('deletePlaylist');
 Route::get('/PlaylistDetails/{page}', [App\Http\Controllers\PlaylistController::class, 'details'])->name('PlaylistDetails');
 Route::get('/PlaylistSelect/{page}', [App\Http\Controllers\PlaylistController::class, 'playlists'])->name('PlaylistSelect');
-Route::get('/storeSong/{song}', [App\Http\Controllers\PlaylistController::class, 'store'])->name('storeSong');
+Route::get('/storeSong/{song}/{playlist}', [App\Http\Controllers\PlaylistController::class, 'store'])->name('storeSong');
 Route::get('/createRecentPlaylist',[App\SessionController::class, 'createPlaylist'])->name('createRecentPlaylist');
+Route::get('/deleteFromPlaylist/{page}/{song}',[App\Http\Controllers\PlaylistController::class, 'deleteFromPlaylist'])->name('deleteFromPlaylist');
 
