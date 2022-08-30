@@ -37,7 +37,7 @@ Route::get('/songDetails/{page}', [App\Http\Controllers\SongController::class, '
 // routes containing functionality that are used by / for the crud of / used to access the playlists.
 
 Route::get('/PlayListform', [App\Http\Controllers\PlaylistController::class, 'index'])->name('PlaylistForm');
-Route::get('/public/createPlaylist', [App\Http\Controllers\PlaylistController::class, 'create'])->name('createPlaylist');
+Route::get('/createPlaylist', [App\Http\Controllers\PlaylistController::class, 'create'])->name('createPlaylist');
 Route::get('/showPlaylist', [App\Http\Controllers\PlaylistController::class, 'display'])->name('showPlaylist');
 Route::get('/updateForm/{page}', [App\Http\Controllers\PlaylistController::class, 'updateForm'])->name('updateform');
 Route::get('/updatePlaylist/{page}', [App\Http\Controllers\PlaylistController::class, 'update'])->name('updatePlaylist');
