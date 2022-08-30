@@ -136,9 +136,10 @@ class PlaylistController extends Controller
         return redirect('/');
     }
 
-    public function deleteFromPlaylist($song)
+    public function deleteFromPlaylist($index, $song)
     {
-        DB::table('playlist_song')->where('song_id', $song)->take(1)->delete();
+
+        DB::table('playlist_song')->where('song_id', $song)->where('playlist_id', $index)->take(1)->delete();
         return redirect('/');
     }
     /**
@@ -153,7 +154,8 @@ class PlaylistController extends Controller
         if($var != []){
             foreach($var as $index){
                 $song = $index->song_id;
-                $this->deleteFromPlaylist($song);
+                $index = $index->playlist_id;
+                $this->deleteFromPlaylist($index, $song);
             }
         }
         Playlist::find($page)->delete();

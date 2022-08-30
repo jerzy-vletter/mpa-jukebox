@@ -1,7 +1,10 @@
 @include('includes.header')
-
 <div class="card-body">
     <h1>songs</h1>
+    @foreach($details as $index)
+
+    <h1>playlist name: {{$index->name}}</h1>
+
     <table border="2">
 
     <tr>
@@ -10,7 +13,7 @@
         <th>delete</th>
     </tr>
 
-    @foreach($details as $index)
+
         @foreach($index->songs as $song)
             <tr>
                 <td>{{$song->name}}</td>
