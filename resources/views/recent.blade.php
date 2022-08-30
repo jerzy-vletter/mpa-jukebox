@@ -5,7 +5,7 @@
     <a>{{$index->name}}</a><br>
 
 @endforeach
-<form action="/public/createRecentPlaylist" method="get">
+<form action="{{ url('/createRecentPlaylist') }}" method="get">
     <input name="recentPlName" type="text" placeholder="playlist name">
     <input type="submit" id='submitButton'>
 </form>
